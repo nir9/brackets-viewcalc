@@ -7,21 +7,21 @@ define(function (require, exports, module) {
         ExtensionUtils = brackets.getModule("utils/ExtensionUtils"),
         AppInit = brackets.getModule("utils/AppInit");
 
-    var HELLOWORLD_EXECUTE = "helloworld.execute";
+    var VIEWCALC_EXECUTE = "viewcalc.execute";
     var panel;
     var panelHtml = require("text!panel.html");
-    var $calcIcon = $( '<a href="#" title="Viewport Calc" id="brackets-viewcalc-icon"></a>' );
+    var $calcIcon = $( '<a href="#" title="ViewCalc" id="brackets-viewcalc-icon"></a>' );
 
 
     function handleHelloWorld() {
         if (panel.isVisible()) {
             panel.hide();
             $calcIcon.removeClass( 'active' );
-            CommandManager.get(HELLOWORLD_EXECUTE).setChecked(false);
+            CommandManager.get(VIEWCALC_EXECUTE).setChecked(false);
         } else {
             panel.show();
             $calcIcon.addClass( 'active' );
-            CommandManager.get(HELLOWORLD_EXECUTE).setChecked(true);
+            CommandManager.get(VIEWCALC_EXECUTE).setChecked(true);
         }
     }
 
@@ -29,17 +29,17 @@ define(function (require, exports, module) {
 
 
         ExtensionUtils.loadStyleSheet(module, "main.css");
-        CommandManager.register("Viewport Calculator", HELLOWORLD_EXECUTE, handleHelloWorld);
+        CommandManager.register("Viewport Calculator", VIEWCALC_EXECUTE, handleHelloWorld);
 
         var menu = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
-        menu.addMenuItem(HELLOWORLD_EXECUTE , 'Ctrl-Alt-V');
+        menu.addMenuItem(VIEWCALC_EXECUTE , 'Ctrl-Alt-V');
 
-        panel = PanelManager.createBottomPanel(HELLOWORLD_EXECUTE, $(panelHtml), 200);
+        panel = PanelManager.createBottomPanel(VIEWCALC_EXECUTE, $(panelHtml), 200);
 
 
         $calcIcon.click(function()
         {
-            //alert("Width: "+ $(this).width() + " Height: " + $(this).height());
+
             handleHelloWorld();
         }).appendTo("#main-toolbar .buttons");
 

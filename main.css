@@ -4,15 +4,14 @@
     margin-top:15px;
 }
 
-/*#main-toolbar .buttons
-{
-
-}*/
 
 #brackets-viewcalc-icon {
-	background-image: url( 'images/todo-icon.svg' );
+	background-image: url( 'images/viewcalc.svg' );
 }
 
 #brackets-viewcalc-icon.active {
-	background-position: 0 -24px;
+	background-image: url( 'images/viewcalc-active.svg' );
+}
+#contents table td {
+    padding: 2px;
 }
