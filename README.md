@@ -1,4 +1,4 @@
-brackets-viewcalc
+ViewCalc
 =================
 
 Viewport calculator extension for Adobe Brackets.
