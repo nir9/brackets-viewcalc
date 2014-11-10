@@ -1,21 +1,69 @@
 <div class="bottom-panel" id="mainpanel">
-<!--<div class="close"></div>--><!--helloworld-panel--->
+    <!--<div class="close"></div>-->
+    <!--helloworld-panel--->
     <div class="toolbar simple-toolbar-layout">
-		<div class="title">Viewport Calculator</div>
+        <div class="title">Viewport Calculator</div>
 
-		<a href="#" class="close">&times;</a>
-	</div>
-
+        <a href="#" class="close">&times;</a>
+    </div>
     <div id="contents">
 
+        <table>
+
+            <tr><td>Display Properties</td><td>Type a value</td><td>Viewport values</td></tr><!--Titles Bar--->
+
+            <tr>
+                <td>
                     <table>
+
                         <tr>
+                            <td>Width</td>
                             <td>
-                                Screen X
-                                <br/>
-                                <input id="screen-x" class="vw" type="text" placeholder="X" />
+                                <input id="screen-x" type="text" />
                             </td>
+                        </tr>
+                        <tr>
+                            <td>Height</td>
                             <td>
+                                <input id="screen-y" type="text" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+
+
+                <td>
+                    <table>
+
+
+                        <tr>
+                            <td><input id="type-a-value" type="text" /> px</td>
+                        </tr>
+                    </table>
+                </td>
+
+
+                <td>
+                    <table>
+
+                        <tr>
+                            <td><input id="result-vh" type="text" onclick="this.select();"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input id="result-vw" type="text" onclick="this.select();"/>
+                                </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<!--<td>
                                 Object Width
                                 <br/>
                                 <input id="obj-width" class="vw" type="text" placeholder="Width" />
@@ -32,13 +80,57 @@
                                 Object Height
                                 <br/>
                                 <input id="obj-height" class="vh" type="text" placeholder="Height" />
-                            </td><!--type="number"--->
+                            </td>type="number"-
                             <td>vh<br/><input id="calculation-vh" class="vh" type="text" placeholder="vh" onClick="this.select();"/></td>
+                        </tr>-->
+
+
+
+
+
+
+
+
+
+
+<!--
+<div id="contents">
+<table>
+    <tr><td>
+                    <table>
+                        <tr>Hello</tr>
+                        <tr>
+                            <td>Width </td><td><input id="screen-x" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Height </td><td><input id="screen-y" type="text" />
+                                </td>
+                        </tr>
+                    </table></td>
+
+        <td><input id="type-a-value" type="text" /> px</td>
+        <td>
+
+
+
+            <table><tr>Hello</tr>
+                        <tr>
+                            <td><input id="result-vh" type="text" onclick="this.select();"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input id="result-vw" type="text" onclick="this.select();"/>
+                                </td>
                         </tr>
                     </table>
 
 
 
-    </div>
 
-</div>
+
+        </td>
+</tr>
+</table>
+
+    </div>--->

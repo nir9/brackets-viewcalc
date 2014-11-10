@@ -1,7 +1,8 @@
 #contents
-{
-    margin-left:15px;
-    margin-top:15px;
+{ display: inline;
+    margin-left:5px;
+    margin-top:5px;
+    font-size: 18px;
 }
 
 
@@ -12,6 +13,16 @@
 #brackets-viewcalc-icon.active {
 	background-image: url( 'images/viewcalc-active.svg' );
 }
-#contents table td {
-    padding: 2px;
+#contents table td{
+
+    /*background-color: red;*/
+    /*height: 18px;*/
+    padding-left: 10px;padding-right: 10px;
+}
+
+#contents table td input{
+
+
+    /*height: 18px;*/
+    margin-top:5px;
 }
