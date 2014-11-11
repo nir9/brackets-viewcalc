@@ -10,6 +10,7 @@ define(function (require, exports, module) {
         AppInit = brackets.getModule("utils/AppInit");
     var NodeConnection = brackets.getModule("utils/NodeConnection");
     var bracketsStrings = brackets.getModule("strings");
+
     var VIEWCALC_EXECUTE = "viewcalc.execute";
     var panel;
     var panelHtml = require("text!panel.html");
@@ -93,7 +94,7 @@ define(function (require, exports, module) {
 
         /*Settings*/
         ExtensionUtils.loadStyleSheet(module, "main.css");
-        CommandManager.register("Viewport Calculator", VIEWCALC_EXECUTE, handleCalcPanel);
+        CommandManager.register("ViewCalc", VIEWCALC_EXECUTE, handleCalcPanel);
 
         var menu = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
         menu.addMenuItem(VIEWCALC_EXECUTE, 'Ctrl-Alt-V');
@@ -121,17 +122,17 @@ define(function (require, exports, module) {
                 $("#contents button").html("Copy");
 
                 $("#result-vh").val(
-                    parseFloat(($("#type-a-value").val()) / parseFloat($("#screen-y").val()) * 100)|| 0 + "vh"
+                    parseFloat((($("#type-a-value").val()) / parseFloat($("#screen-y").val()) * 100)|| 0) + "vh"
                 );
 
                 $("#result-vw").val(
-                    parseFloat(($("#type-a-value").val()) / parseFloat($("#screen-x").val()) * 100)|| 0 + "vw"
+                    parseFloat((($("#type-a-value").val()) / parseFloat($("#screen-x").val()) * 100)|| 0) + "vw"
                 );
             });
 
 
 
-        $("#contents button").click(function () {
+        $("#contents button").click(function () {//Wait for node to load
             $("#contents button").html("Copy"); //Removes previous Copied!
 
             $(this).html("Copied!");
