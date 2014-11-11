@@ -1,28 +1,32 @@
-#contents
-{ display: inline;
-    margin-left:5px;
-    margin-top:5px;
+#contents {
+    display: inline;
+    margin-left: 10px;
+    margin-top: 5px;
     font-size: 18px;
 }
 
-
 #brackets-viewcalc-icon {
-	background-image: url( 'images/viewcalc.svg' );
+    background-image: url('images/viewcalc.svg');
 }
 
 #brackets-viewcalc-icon.active {
-	background-image: url( 'images/viewcalc-active.svg' );
-}
-#contents table td{
-
-    /*background-color: red;*/
-    /*height: 18px;*/
-    padding-left: 10px;padding-right: 10px;
+    background-image: url('images/viewcalc-active.svg');
 }
 
-#contents table td input{
+#contents table td {
 
+    padding-top: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
-    /*height: 18px;*/
-    margin-top:5px;
+#contents table td input {
+
+    position: relative;
+    top: 5px;
+}
+
+#contents table td .width-height {
+    top: 2.5px;
+
 }
