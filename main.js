@@ -3,10 +3,6 @@ define(function (require, exports, module) {
 
 
 
-
-
-
-
     var CommandManager = brackets.getModule("command/CommandManager"),
         Menus = brackets.getModule("command/Menus"),
         PanelManager = brackets.getModule("view/PanelManager"),
@@ -37,11 +33,11 @@ define(function (require, exports, module) {
     function handleCalcPanel() {
         if (panel.isVisible()) {
             panel.hide();
-            $calcIcon.removeClass( 'active' );
+            $calcIcon.removeClass('active');
             CommandManager.get(VIEWCALC_EXECUTE).setChecked(false);
         } else {
             panel.show();
-            $calcIcon.addClass( 'active' );
+            $calcIcon.addClass('active');
             CommandManager.get(VIEWCALC_EXECUTE).setChecked(true);
         }
     }
@@ -95,60 +91,58 @@ define(function (require, exports, module) {
 
 
 
-
+        /*Settings*/
         ExtensionUtils.loadStyleSheet(module, "main.css");
         CommandManager.register("Viewport Calculator", VIEWCALC_EXECUTE, handleCalcPanel);
 
         var menu = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
-        menu.addMenuItem(VIEWCALC_EXECUTE , 'Ctrl-Alt-V');
+        menu.addMenuItem(VIEWCALC_EXECUTE, 'Ctrl-Alt-V');
 
         panel = PanelManager.createBottomPanel(VIEWCALC_EXECUTE, $(panelHtml), 200);
+        /*Settings Until Here*/
 
-        //alert($("#screen-x").height());
-        $calcIcon.click(function()
-        {
+
+        /*Events*/
+        $calcIcon.click(function () {
 
             handleCalcPanel();
         }).appendTo("#main-toolbar .buttons");
 
         $("#mainpanel")
-			.on( 'click', '.close', function() {
-				handleCalcPanel();
+            .on('click', '.close', function () {
+                handleCalcPanel();
 
-			} );
+            });
 
 
-        $("#contents *").on('input', function()//Changes the vh whenever someone types in one of the inputs
-        {
+        $("#contents *").on('input', function () //Changes the vh whenever someone types in one of the inputs
+            {
 
-            $("#contents button").html("Copy");
+                $("#contents button").html("Copy");
 
-            $("#result-vh").val(
-                parseFloat($("#type-a-value").val()) / parseFloat($("#screen-y").val()) * 100
-                + "vh"
-            );
+                $("#result-vh").val(
+                    parseFloat(($("#type-a-value").val()) / parseFloat($("#screen-y").val()) * 100)|| 0 + "vh"
+                );
 
-            $("#result-vw").val(
-                parseFloat($("#type-a-value").val()) / parseFloat($("#screen-x").val()) * 100
-                + "vw"
-            );
-        });
+                $("#result-vw").val(
+                    parseFloat(($("#type-a-value").val()) / parseFloat($("#screen-x").val()) * 100)|| 0 + "vw"
+                );
+            });
 
 
 
-        $("#contents button").click(function()
-        {
-            $("#contents button").html("Copy");//Removes previous Copied!
+        $("#contents button").click(function () {
+            $("#contents button").html("Copy"); //Removes previous Copied!
 
             $(this).html("Copied!");
 
-            if($(this).attr("id")=="button-vw")//Check if button is to copy vw or vh
+            if ($(this).attr("id") == "button-vw") //Check if button is to copy vw or vh
                 nodeConnection.domains.clipboard.callCopy($("#result-vw").val());
             else
                 nodeConnection.domains.clipboard.callCopy($("#result-vh").val());
         });
-//onchange
-
+        //onchange
+        /*Events Until Here*/
     });
 
 
