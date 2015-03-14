@@ -30,3 +30,19 @@
     top: 2.5px;
 
 }
+
+#vc-displayprops{
+
+    margin-left:10px;
+}
+
+#vc-displayprops button{
+    width:100px;
+    margin:5px;
+}
+
+@media (max-width: 1600px) {/*cool*/
+    #vc-displayprops {
+        display: none;
+    }
+}

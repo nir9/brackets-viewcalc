@@ -1,3 +1,6 @@
+//MIT Licensed
+//Credits: Concept and Design - Idan Abarbanel
+
 define(function (require, exports, module) {
 
 
@@ -42,6 +45,7 @@ define(function (require, exports, module) {
             CommandManager.get(VIEWCALC_EXECUTE).setChecked(true);
         }
     }
+
 
     AppInit.appReady(function () {
 
@@ -116,10 +120,11 @@ define(function (require, exports, module) {
             });
 
 
-        $("#contents *").on('input', function () //Changes the vh whenever someone types in one of the inputs
+        $("#contents input").on('input', function () //Changes the vh whenever someone types in one of the inputs
             {
 
-                $("#contents button").html("Copy");
+
+                $("#contents td button").html("Copy");
 
                 $("#result-vh").val(
                     parseFloat((($("#type-a-value").val()) / parseFloat($("#screen-y").val()) * 100)|| 0) + "vh"
@@ -132,8 +137,10 @@ define(function (require, exports, module) {
 
 
 
-        $("#contents button").click(function () {//Wait for node to load
-            $("#contents button").html("Copy"); //Removes previous Copied!
+
+
+        $("#contents td button").click(function () {//Wait for node to load
+            $("#contents td button").html("Copy"); //Removes previous Copied!
 
             $(this).html("Copied!");
 
@@ -144,6 +151,18 @@ define(function (require, exports, module) {
         });
         //onchange
         /*Events Until Here*/
+
+
+
+
+        $("#contents #vc-displayprops button").click(function () { //Or Select A Size
+            var vals = $(this).html().split("x");
+
+            $("#screen-x").val(vals[0].replace(" ",""));
+            $("#screen-y").val(vals[1].replace(" ",""));
+        });
+
+
     });
 
 
